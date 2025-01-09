@@ -5,6 +5,7 @@ import 'src/screens/widgetcatalog/containment_page.dart';
 import 'src/screens/widgetcatalog/navigation_page.dart';
 import 'src/screens/widgetcatalog/selection_page.dart';
 import 'src/screens/widgetcatalog/text_inputs_page.dart';
+import 'src/screens/layout/introduction_page.dart';
 
 
 void main() {
@@ -55,15 +56,15 @@ class MyHomePage extends StatelessWidget {
         },
       ],
     },
-    // {
-    //   'title': 'Layout',
-    //   'children': [
-    //     {
-    //       'title': 'Introduction',
-    //       'page': IntroductionPage(),
-    //     },
-    //   ],
-    // },
+    {
+      'title': 'Layout',
+      'children': [
+        {
+          'title': 'Introduction',
+          'page': IntroductionPage(),
+        },
+      ],
+    },
   ];
 
   @override
