@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'src/screens/widgetcatalog/actions_page.dart';
+import 'src/screens/widgetcatalog/communication_page.dart';
+import 'src/screens/widgetcatalog/containment_page.dart';
+import 'src/screens/widgetcatalog/navigation_page.dart';
+import 'src/screens/widgetcatalog/selection_page.dart';
+import 'src/screens/widgetcatalog/text_inputs_page.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -9,45 +16,54 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Journey',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class MyHomePage extends StatelessWidget {
   final List<Map<String, dynamic>> widgetCatalog = [
     {
-      'title': 'Widget Catalog',
+      'title': 'Widgets',
       'children': [
         {
           'title': 'Actions',
+          'page': ActionsPage(),
         },
         {
           'title': 'Communication',
+          'page': CommunicationPage(),
         },
         {
           'title': 'Containment',
+          'page': ContainmentPage(),
         },
         {
           'title': 'Navigation',
+          'page': NavigationPage(),
         },
         {
           'title': 'Selection',
+          'page': SelectionPage(),
         },
         {
           'title': 'Text Inputs',
+          'page': TextInputsPage(),
         },
       ],
     },
-    {
-      'title': 'Layout',
-      'children': [
-        {
-          'title': 'Introduction',
-        },
-      ],
-    },
+    // {
+    //   'title': 'Layout',
+    //   'children': [
+    //     {
+    //       'title': 'Introduction',
+    //       'page': IntroductionPage(),
+    //     },
+    //   ],
+    // },
   ];
 
   @override
@@ -67,9 +83,7 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => WidgetDetailPage(
-                          widgetName: subcategory['title'],
-                        ),
+                        builder: (context) => subcategory['page'],
                       ),
                     );
                   },
@@ -79,33 +93,7 @@ class HomePage extends StatelessWidget {
           }).toList(),
         ),
       ),
-      body: Center(
-        child: Text(
-          'Explore the Flutter Widget Catalog using the navigation drawer.',
-          style: TextStyle(fontSize: 18),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-}
-
-class WidgetDetailPage extends StatelessWidget {
-  final String widgetName;
-
-  WidgetDetailPage({required this.widgetName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widgetName)),
-      body: Center(
-        child: Text(
-          'Details and examples for $widgetName.',
-          style: TextStyle(fontSize: 16),
-          textAlign: TextAlign.center,
-        ),
-      ),
+      body: Center(child: Text('Select a category from the drawer')),
     );
   }
 }
