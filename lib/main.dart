@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Align(
           alignment: Alignment.centerLeft,
-          child: Text('Flutter'),
+          child: Text('Flutter Docs'),
         ),
       ),
       drawer: Drawer(
