@@ -33,7 +33,7 @@ class ActionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Actions')),
+      // appBar: AppBar(title: Text('Actions')),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4, // Increase the number of columns to decrease item size

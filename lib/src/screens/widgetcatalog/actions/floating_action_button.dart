@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterui/src/widgets/textbox.dart';
 
 class FloatingActionButtonPage extends StatefulWidget {
   const FloatingActionButtonPage({super.key});
@@ -38,15 +39,6 @@ class _FloatingActionButtonPageState
       );
     }
 
-    Widget textBox(String inputText, [double inputFontSize = 18]) {
-      return Align(
-        alignment: Alignment.centerLeft,
-        child: Text(inputText,
-            style: TextStyle(fontSize: inputFontSize),
-        ),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('FloatingActionButton Sample'),
@@ -55,7 +47,7 @@ class _FloatingActionButtonPageState
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            textBox('Use at most a single floating action button per screen. Floating action buttons should be used for positive actions such as "create", "share", or "navigate". (If more than one floating action button is used within a Route, then make sure that each button has a unique heroTag, otherwise an exception will be thrown.', 18),
+            textBox('Use at most a single floating action button per screen. Floating action buttons should be used for positive actions such as "create", "share", or "navigate". (If more than one floating action button is used within a Route, then make sure that each button has a unique heroTag, otherwise an exception will be thrown.', inputFontSize: 18),
             SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

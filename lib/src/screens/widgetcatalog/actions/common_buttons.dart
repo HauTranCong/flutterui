@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterui/src/widgets/textbox.dart';
 
 class CommonButtons extends StatelessWidget {
   @override
@@ -9,13 +10,7 @@ class CommonButtons extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-              'Clickable blocks that perform an action, such as sending an email, sharing a document, or liking the comment.',
-              style: TextStyle(fontSize: 18),
-              ),
-            ),
+            textBox('Clickable blocks that perform an action, such as sending an email, sharing a document, or liking the comment.', inputFontSize: 18),
             SizedBox(height: 20),
             ButtonTypesExample(),
             // Add more widgets as needed

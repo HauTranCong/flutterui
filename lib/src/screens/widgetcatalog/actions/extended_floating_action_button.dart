@@ -1,44 +1,9 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutterui/src/widgets/textbox.dart';
 
 class ExtendedFloatingActionButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget textBox(String inputText, {double inputFontSize = 18, String? url}) {
-      return Align(
-        alignment: Alignment.centerLeft,
-        child: SelectableText.rich(
-          TextSpan(
-            style: TextStyle(fontSize: inputFontSize, color: Colors.black),
-            children: [
-              TextSpan(
-                text: inputText,
-                style: TextStyle(fontSize: inputFontSize),
-              ),
-              if (url != null) ...[
-                TextSpan(
-                  text: ' ',
-                  style: TextStyle(fontSize: inputFontSize),
-                ),
-                TextSpan(
-                  text: url,
-                  style: TextStyle(fontSize: inputFontSize, color: Colors.blue),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () async {
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                ),
-              ],
-            ],
-          ),
-        ),
-      );
-    }
 
     return Scaffold(
       appBar: AppBar(title: Text('Extended Floating Action Button')),
