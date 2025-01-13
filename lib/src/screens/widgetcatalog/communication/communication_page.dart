@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'badge.dart';
 import 'linear_progress_indicator.dart';
+import 'snackbar.dart';
 
 class CommunicationPage extends StatelessWidget {
   final List<String> pages = [
     'Badge',
     'Linear Progress Indicator',
+    'Snackbar',
   ];
 
   final List<Widget> pageWidgets = [
     BadgePage(),
     LinearProgressIndicatorPage(),
+    SnackbarPage(),
   ];
 
   final List<String> imagePages = [
