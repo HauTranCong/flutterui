@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui/src/screens/widgetcatalog/communication/badge.dart';
-import 'package:flutterui/src/screens/widgetcatalog/communication/linear_progress_indicator.dart';
+import 'common_buttons.dart';
+import 'floating_action_button.dart';
+import 'extended_floating_action_button.dart';
+import 'icon_button.dart';
+import 'segment_button.dart';
 
-class CommunicationPage extends StatelessWidget {
+class ActionsPage extends StatelessWidget {
   final List<String> pages = [
-    'Badge',
-    'Linear Progress Indicator',
+    'Common Buttons',
+    'FloatingActionButton',
+    'Extended FloatingActionButton',
+    'IconButton',
+    'SegmentButton',
   ];
 
   final List<Widget> pageWidgets = [
-    BadgePage(),
-    LinearProgressIndicatorPage(),
+    CommonButtons(),
+    FloatingActionButtonPage(),
+    ExtendedFloatingActionButtonPage(),
+    IconButtonPage(),
+    SegmentButtonPage(),
   ];
 
   final List<String> imagePages = [
-    'https://images.unsplash.com/photo-1711645372528-cddb2c6eb565?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1673369602251-8ea4b390cbda?q=80&w=2565&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1663580395169-914a11606e42?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1699286756200-d2dde241262c?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1733068698906-be2baae07782?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1733056883310-0e1658d09c36?q=80&w=2380&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1719014322787-f0b1e16d2712?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1657497850541-b0199c958846?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   ];
 
   @override

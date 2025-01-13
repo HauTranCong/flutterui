@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'src/screens/widgetcatalog/actions_page.dart';
-import 'src/screens/widgetcatalog/communication_page.dart';
-import 'src/screens/widgetcatalog/containment_page.dart';
-import 'src/screens/widgetcatalog/navigation_page.dart';
-import 'src/screens/widgetcatalog/selection_page.dart';
-import 'src/screens/widgetcatalog/text_inputs_page.dart';
+import 'src/screens/widgetcatalog/actions/actions_page.dart';
+import 'src/screens/widgetcatalog/communication/communication_page.dart';
+import 'src/screens/widgetcatalog/containment/containment_page.dart';
+import 'src/screens/widgetcatalog/navigation/navigation_page.dart';
+import 'src/screens/widgetcatalog/selection/selection_page.dart';
+import 'src/screens/widgetcatalog/text_inputs/text_inputs_page.dart';
 import 'src/screens/layout/introduction_page.dart';
 
 void main() {
