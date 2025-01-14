@@ -62,6 +62,8 @@ class SnackbarPage extends StatelessWidget {
                 );
               },
             ),
+            SizedBox(height: 20),
+            SnackBarWithOptionExample(),
           ],
         ),
       ),
@@ -86,16 +88,9 @@ class _SnackBarWithOptionExampleState extends State<SnackBarWithOptionExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('SnackBar Sample')),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(_snackBar());
-        },
-        icon: const Icon(Icons.play_arrow),
-        label: const Text('Show Snackbar'),
-      ),
-      body: ListView(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
         children: <Widget>[
           ExpansionTile(
             title: const Text('Behavior'),
@@ -160,8 +155,8 @@ class _SnackBarWithOptionExampleState extends State<SnackBarWithOptionExample> {
                 onChanged: !_withAction
                     ? null
                     : (bool value) => setState(() {
-                          _longActionLabel = value;
-                        }),
+                        _longActionLabel = value;
+                      }),
               ),
             ],
           ),
@@ -182,6 +177,13 @@ class _SnackBarWithOptionExampleState extends State<SnackBarWithOptionExample> {
           // Avoid hiding content behind the floating action button
           const SizedBox(
             height: 100,
+          ),
+          FloatingActionButton.extended(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(_snackBar());
+            },
+            icon: const Icon(Icons.play_arrow),
+            label: const Text('Show Snackbar'),
           ),
         ],
       ),
