@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 1;
+  int _selectedPageIndex = 2;
 
   final List<Widget> _pages = [
     ActionsPage(),
