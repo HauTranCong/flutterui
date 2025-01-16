@@ -21,7 +21,53 @@ class ListTileScreen extends StatelessWidget {
                             inputFontSize: 24,
                             url: 'https://m3.material.io/components/list-tile/overview',
                         ),
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' ListTile with animation.',
+                            inputFontSize: 18,
+                        ),
                         ListTileExample(),
+                        SizedBox(height: 20),
+                        
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' ListTile with cards.',
+                            inputFontSize: 18,
+                        ),
+                        ListTileCards(),
+                        SizedBox(height: 20),
+                        
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' ListTile with divider.',
+                            inputFontSize: 18,
+                        ),
+                        ListTileWithDivider(),
+                        SizedBox(height: 20),
+                        
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' ListTile with states.',
+                            inputFontSize: 18,
+                        ),
+                        ListTileCustomization(),
+                        SizedBox(height: 20),  
+
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' ListTile with title alignment.',
+                            inputFontSize: 18,
+                        ),
+                        ListTileAlignment(),
+                        SizedBox(height: 20),
+
+                        Divider(height: 0, color: Colors.black, thickness: 2),
+                        textBox(
+                            ' Custom list item.',
+                            inputFontSize: 18,
+                        ),
+                        CustomListItemExample(),
+                        SizedBox(height: 20),
                     ],
                 ),
             ),
@@ -148,6 +194,342 @@ class _ListTileExampleState extends State<ListTileExample>
             ),
           ),
         ],
+    );
+  }
+}
+
+class ListTileCards extends StatelessWidget {
+  const ListTileCards({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const <Widget>[
+        Card(child: ListTile(title: Text('One-line ListTile'))),
+        Card(
+          child: ListTile(
+            leading: FlutterLogo(),
+            title: Text('One-line with leading widget'),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text('One-line with trailing widget'),
+            trailing: Icon(Icons.more_vert),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            leading: FlutterLogo(),
+            title: Text('One-line with both widgets'),
+            trailing: Icon(Icons.more_vert),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text('One-line dense ListTile'),
+            dense: true,
+          ),
+        ),
+        Card(
+          child: ListTile(
+            leading: FlutterLogo(size: 56.0),
+            title: Text('Two-line ListTile'),
+            subtitle: Text('Here is a second line'),
+            trailing: Icon(Icons.more_vert),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            leading: FlutterLogo(size: 72.0),
+            title: Text('Three-line ListTile'),
+            subtitle:
+              Text('A sufficiently long subtitle warrants three lines.'),
+            trailing: Icon(Icons.more_vert),
+            isThreeLine: true,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ListTileWithDivider extends StatelessWidget {
+  const ListTileWithDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const <Widget>[
+        ListTile(
+          leading: CircleAvatar(child: Text('A')),
+          title: Text('Headline'),
+          subtitle: Text('Supporting text'),
+          trailing: Icon(Icons.favorite_rounded),
+        ),
+        Divider(height: 0),
+        ListTile(
+          leading: CircleAvatar(child: Text('B')),
+          title: Text('Headline'),
+          subtitle: Text(
+              'Longer supporting text to demonstrate how the text wraps and how the leading and trailing widgets are centered vertically with the text.'),
+          trailing: Icon(Icons.favorite_rounded),
+        ),
+        Divider(height: 0),
+        ListTile(
+          leading: CircleAvatar(child: Text('C')),
+          title: Text('Headline'),
+          subtitle: Text(
+              "Longer supporting text to demonstrate how the text wraps and how setting 'ListTile.isThreeLine = true' aligns leading and trailing widgets to the top vertically with the text."),
+          trailing: Icon(Icons.favorite_rounded),
+          isThreeLine: true,
+        ),
+        Divider(height: 0),
+      ],
+    );
+  }
+}
+
+class ListTileCustomization extends StatefulWidget {
+  const ListTileCustomization({super.key});
+
+  @override
+  State<ListTileCustomization> createState() => _ListTileListTileCustomization();
+}
+
+class _ListTileListTileCustomization extends State<ListTileCustomization> {
+  bool _selected = false;
+  bool _enabled = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          enabled: _enabled,
+          selected: _selected,
+          onTap: () {
+            setState(() {
+              // This is called when the user toggles the switch.
+              _selected = !_selected;
+            });
+          },
+          iconColor:
+              const WidgetStateColor.fromMap(<WidgetStatesConstraint, Color>{
+            WidgetState.disabled: Colors.red,
+            WidgetState.selected: Colors.green,
+            WidgetState.any: Colors.black,
+          }),
+          // The same can be achieved using the .resolveWith() constructor.
+          // The text color will be identical to the icon color above.
+          textColor: WidgetStateColor.resolveWith((Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return Colors.red;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return Colors.green;
+            }
+            return Colors.black;
+          }),
+          leading: const Icon(Icons.person),
+          title: const Text('Headline'),
+          subtitle: Text('Enabled: $_enabled, Selected: $_selected'),
+          trailing: Switch(
+            onChanged: (bool? value) {
+              // This is called when the user toggles the switch.
+              setState(() {
+                _enabled = value!;
+              });
+            },
+            value: _enabled,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ListTileAlignment extends StatefulWidget {
+  const ListTileAlignment({super.key});
+
+  @override
+  State<ListTileAlignment> createState() => _ListTileAlignmentState();
+}
+
+class _ListTileAlignmentState extends State<ListTileAlignment> {
+  ListTileTitleAlignment? titleAlignment;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        const Divider(),
+        ListTile(
+          titleAlignment: titleAlignment,
+          leading: Checkbox(
+            value: true,
+            onChanged: (bool? value) {},
+          ),
+          title: const Text('Headline Text'),
+          subtitle: const Text(
+              'Tapping on the trailing widget will show a menu that allows you to change the title alignment. The title alignment is set to threeLine by default if `ThemeData.useMaterial3` is true. Otherwise, defaults to titleHeight.'),
+          trailing: PopupMenuButton<ListTileTitleAlignment>(
+            onSelected: (ListTileTitleAlignment? value) {
+              setState(() {
+                titleAlignment = value;
+              });
+            },
+            itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<ListTileTitleAlignment>>[
+              const PopupMenuItem<ListTileTitleAlignment>(
+                value: ListTileTitleAlignment.threeLine,
+                child: Text('threeLine'),
+              ),
+              const PopupMenuItem<ListTileTitleAlignment>(
+                value: ListTileTitleAlignment.titleHeight,
+                child: Text('titleHeight'),
+              ),
+              const PopupMenuItem<ListTileTitleAlignment>(
+                value: ListTileTitleAlignment.top,
+                child: Text('top'),
+              ),
+              const PopupMenuItem<ListTileTitleAlignment>(
+                value: ListTileTitleAlignment.center,
+                child: Text('center'),
+              ),
+              const PopupMenuItem<ListTileTitleAlignment>(
+                value: ListTileTitleAlignment.bottom,
+                child: Text('bottom'),
+              ),
+            ],
+          ),
+        ),
+        const Divider(),
+      ],
+    );
+  }
+}
+
+class CustomListItem extends StatelessWidget {
+  const CustomListItem({
+    super.key,
+    required this.thumbnail,
+    required this.title,
+    required this.user,
+    required this.viewCount,
+  });
+
+  final Widget thumbnail;
+  final String title;
+  final String user;
+  final int viewCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: thumbnail,
+          ),
+          Expanded(
+            flex: 3,
+            child: _VideoDescription(
+              title: title,
+              user: user,
+              viewCount: viewCount,
+            ),
+          ),
+          const Icon(
+            Icons.more_vert,
+            size: 16.0,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _VideoDescription extends StatelessWidget {
+  const _VideoDescription({
+    required this.title,
+    required this.user,
+    required this.viewCount,
+  });
+
+  final String title;
+  final String user;
+  final int viewCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14.0,
+            ),
+          ),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
+          Text(
+            user,
+            style: const TextStyle(fontSize: 10.0),
+          ),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 1.0)),
+          Text(
+            '$viewCount views',
+            style: const TextStyle(fontSize: 10.0),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomListItemExample extends StatelessWidget {
+  const CustomListItemExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <CustomListItem>[
+        CustomListItem(
+          user: 'Flutter',
+          viewCount: 999000,
+          thumbnail: LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                width: constraints.maxWidth * 0.2, // 20% of the available width
+                height: constraints.maxWidth * 0.2, // 20% of the available width
+                decoration: const BoxDecoration(color: Colors.blue),
+              );
+            },
+          ),
+          title: 'The Flutter YouTube Channel',
+        ),
+        CustomListItem(
+          user: 'Dash',
+          viewCount: 884000,
+          thumbnail: LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                width: constraints.maxWidth * 0.2, // 20% of the available width
+                height: constraints.maxWidth * 0.2, // 20% of the available width
+                decoration: const BoxDecoration(color: Colors.yellow),
+              );
+            },
+          ),
+          title: 'Announcing Flutter 1.0',
+        ),
+      ],
     );
   }
 }
