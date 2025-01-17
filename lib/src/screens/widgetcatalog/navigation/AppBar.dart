@@ -41,7 +41,7 @@ class _AppBarExampleState extends State<AppBarExample> {
             length: tabsCount,
             child: Scaffold(
                 appBar: AppBar(
-                    title: const Text('AppBar Demo'),
+                    title: const Text('Top app bars display navigation, actions, and text at the top of a screen'),
                     scrolledUnderElevation: scrolledUnderElevation,
                     shadowColor: shadowColor ? Theme.of(context).colorScheme.shadow : null,
                     notificationPredicate: (ScrollNotification notification) {
