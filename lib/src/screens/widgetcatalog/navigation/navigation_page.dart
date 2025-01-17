@@ -101,8 +101,20 @@ class _HoverCardState extends State<HoverCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 8.0),
-                    Text(widget.title, style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(widget.subtitle, style: TextStyle(color: Colors.grey)),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: constraints.maxWidth * 0.075, // Adjust the multiplier as needed
+                      ),
+                    ),
+                    Text(
+                      widget.subtitle,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: constraints.maxWidth * 0.0325, // Adjust the multiplier as needed
+                      ),
+                    ),
                   ],
                 ),
               ),
