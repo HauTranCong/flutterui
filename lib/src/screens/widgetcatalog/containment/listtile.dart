@@ -66,7 +66,7 @@ class ListTileScreen extends StatelessWidget {
                             ' Custom list item.',
                             inputFontSize: 18,
                         ),
-                        CustomListItemExample(),
+                        const CustomListItemExample(),
                         SizedBox(height: 20),
                     ],
                 ),
@@ -500,34 +500,35 @@ class CustomListItemExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <CustomListItem>[
-        CustomListItem(
-          user: 'Flutter',
-          viewCount: 999000,
-          thumbnail: LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                width: constraints.maxWidth * 0.2, // 20% of the available width
-                height: constraints.maxWidth * 0.2, // 20% of the available width
-                decoration: const BoxDecoration(color: Colors.blue),
-              );
-            },
-          ),
-          title: 'The Flutter YouTube Channel',
-        ),
-        CustomListItem(
-          user: 'Dash',
-          viewCount: 884000,
-          thumbnail: LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                width: constraints.maxWidth * 0.2, // 20% of the available width
-                height: constraints.maxWidth * 0.2, // 20% of the available width
-                decoration: const BoxDecoration(color: Colors.yellow),
-              );
-            },
-          ),
-          title: 'Announcing Flutter 1.0',
+      children: <Widget>[
+        // Add other widgets here if needed
+        ListView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          children: <Widget>[
+            CustomListItem(
+              user: 'Flutter',
+              viewCount: 999000,
+              thumbnail: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.blue),
+                ),
+              ),
+              title: 'The Flutter YouTube Channel',
+            ),
+            CustomListItem(
+              user: 'Dash',
+              viewCount: 884000,
+              thumbnail: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.yellow),
+                ),
+              ),
+              title: 'Announcing Flutter 1.0',
+            ),
+          ],
         ),
       ],
     );
