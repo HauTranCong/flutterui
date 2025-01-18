@@ -7,7 +7,7 @@ import 'NavigationRail.dart';
 import 'TabBar.dart';
 
 class NavigationPage extends StatelessWidget {
-  final List<String> pages = [
+  final List<String> pages = const [
     'App Bar',
     'Bottom App Bar',
     'Navigation Bar',
@@ -16,13 +16,13 @@ class NavigationPage extends StatelessWidget {
     'Tab Bar',
   ];
 
-  final List<String> subtitles = [
+  final List<String> subtitles = const [
     'Top app bars display navigation, actions, and text at the top of a screen',
-    'This is the Bottom App Bar page',
-    'This is the Navigation Bar page',
-    'This is the Navigation Drawer page',
-    'This is the Navigation Rail page',
-    'This is the Tab Bar page',
+    'Bottom app bars display navigation and key actions at the bottom of mobile and tablet screens',
+    'Navigation bars let people switch between UI views on smaller devices',
+    'Navigation drawers let people switch between UI views on larger devices',
+    'Navigation rails let people switch between UI views on mid-sized devices',
+    'Tabs organize content across different screens and views',
   ];
 
   final List<Widget> pageWidgets = [
@@ -42,7 +42,7 @@ class NavigationPage extends StatelessWidget {
 
     return Scaffold(
       body: GridView.builder(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount,
           childAspectRatio: childAspectRatio,
@@ -65,7 +65,12 @@ class HoverCard extends StatefulWidget {
   final String subtitle;
   final Widget page;
 
-  HoverCard({required this.title, required this.subtitle, required this.page});
+  const HoverCard({
+    required this.title,
+    required this.subtitle,
+    required this.page,
+    super.key,
+  });
 
   @override
   _HoverCardState createState() => _HoverCardState();
@@ -92,27 +97,27 @@ class _HoverCardState extends State<HoverCard> {
           builder: (context, constraints) {
             return Card(
               color: _isHovered ? Colors.blue[70] : Colors.white,
-              margin: EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       widget.title,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: constraints.maxWidth * 0.075, // Adjust the multiplier as needed
+                        fontSize: constraints.maxWidth * 0.075,
                       ),
                     ),
                     Text(
                       widget.subtitle,
                       style: TextStyle(
                         color: Colors.grey,
-                        fontSize: constraints.maxWidth * 0.0325, // Adjust the multiplier as needed
+                        fontSize: constraints.maxWidth * 0.0325,
                       ),
                     ),
                   ],
