@@ -1,9 +1,40 @@
 import 'package:flutter/material.dart';
+import 'NavigationBarWithDestinationPages.dart';
 
 class NavigationBarScreen extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-        return NavigationExample();
+        return Scaffold(
+            appBar: AppBar(
+                title: const Text('Navigation Bar Examples'),
+            ),
+            body: SingleChildScrollView(
+                child: Column(
+                    children: [
+                        Card(
+                            margin: EdgeInsets.all(16.0),
+                            child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.4, // Adjust height dynamically
+                                    child: NavigationExample(),
+                                ),
+                            ),
+                        ),
+                        Card(
+                            margin: EdgeInsets.all(16.0),
+                            child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.4, // Adjust height dynamically
+                                    child: NavigationBarWithDestinationPages(),
+                                ),
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+        );
     }
 }
 
@@ -24,7 +55,8 @@ class _NavigationExampleState extends State<NavigationExample> {
         final ThemeData theme = Theme.of(context);
         return Scaffold(
             appBar: AppBar(
-                title: const Text('Navigation Bar Example'),
+                title: const Text('Navigation Bar Within Scaffold'),
+                automaticallyImplyLeading: false,
             ),
             bottomNavigationBar: NavigationBar(
                 labelBehavior: labelBehavior,
