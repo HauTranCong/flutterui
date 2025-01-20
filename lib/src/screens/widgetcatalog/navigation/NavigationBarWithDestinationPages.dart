@@ -162,7 +162,7 @@ class RootPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${destination.title} RootPage - /'),
+        title: Text('Navigation Bar with destination pages ${destination.title} -/'),
         backgroundColor: destination.color,
         foregroundColor: Colors.white,
       ),

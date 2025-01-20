@@ -16,20 +16,22 @@ class NavigationBarScreen extends StatelessWidget {
                             child: Padding(
                                 padding: EdgeInsets.all(16.0),
                                 child: SizedBox(
-                                    height: MediaQuery.of(context).size.height * 0.4, // Adjust height dynamically
+                                    height: MediaQuery.of(context).size.height * 0.5, // Adjust height dynamically
                                     child: NavigationExample(),
                                 ),
                             ),
+                            color: Colors.grey[200],
                         ),
                         Card(
                             margin: EdgeInsets.all(16.0),
                             child: Padding(
                                 padding: EdgeInsets.all(16.0),
                                 child: SizedBox(
-                                    height: MediaQuery.of(context).size.height * 0.4, // Adjust height dynamically
+                                    height: MediaQuery.of(context).size.height * 0.5, // Adjust height dynamically
                                     child: NavigationBarWithDestinationPages(),
                                 ),
                             ),
+                            color: Colors.grey[200],
                         ),
                     ],
                 ),
