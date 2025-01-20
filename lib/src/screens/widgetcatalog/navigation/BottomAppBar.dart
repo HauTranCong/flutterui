@@ -3,43 +3,7 @@ import 'package:flutter/material.dart';
 class BottomAppBarScreen extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-        return BottomAppBarDemo();
-            //     Scaffold(
-            // appBar: AppBar(
-            //     title: Text('BottomAppBar Example'),
-            // ),
-            // body: SingleChildScrollView(
-            //     child: Column(
-            //         children: <Widget>[
-            //             // Add your widgets here
-            //         ],
-            //     ),
-            // ),
-            // bottomNavigationBar: BottomAppBar(
-            //     shape: CircularNotchedRectangle(),
-            //     notchMargin: 6.0,
-            //     child: Row(
-            //         mainAxisSize: MainAxisSize.max,
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: <Widget>[
-            //             IconButton(
-            //                 icon: Icon(Icons.menu),
-            //                 onPressed: () {},
-            //             ),
-            //             IconButton(
-            //                 icon: Icon(Icons.search),
-            //                 onPressed: () {},
-            //             ),
-            //         ],
-            //     ),
-            // ),
-            // floatingActionButton: FloatingActionButton(
-            //     onPressed: () {},
-            //     tooltip: 'Increment',
-            //     child: Icon(Icons.add),
-            // ),
-            // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-            // );
+      return BottomAppBarDemo();
     }
 }
 
@@ -76,73 +40,71 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text('Bottom App Bar Demo'),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.only(bottom: 88),
+        children: <Widget>[
+          SwitchListTile(
+            title: const Text(
+              'Floating Action Button',
+            ),
+            value: _showFab,
+            onChanged: _onShowFabChanged,
           ),
-          title: const Text('Bottom App Bar Demo'),
-        ),
-        body: ListView(
-          padding: const EdgeInsets.only(bottom: 88),
-          children: <Widget>[
-            SwitchListTile(
-              title: const Text(
-                'Floating Action Button',
-              ),
-              value: _showFab,
-              onChanged: _onShowFabChanged,
-            ),
-            SwitchListTile(
-              title: const Text('Notch'),
-              value: _showNotch,
-              onChanged: _onShowNotchChanged,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text('Floating action button position'),
-            ),
-            RadioListTile<FloatingActionButtonLocation>(
-              title: const Text('Docked - End'),
-              value: FloatingActionButtonLocation.endDocked,
-              groupValue: _fabLocation,
-              onChanged: _onFabLocationChanged,
-            ),
-            RadioListTile<FloatingActionButtonLocation>(
-              title: const Text('Docked - Center'),
-              value: FloatingActionButtonLocation.centerDocked,
-              groupValue: _fabLocation,
-              onChanged: _onFabLocationChanged,
-            ),
-            RadioListTile<FloatingActionButtonLocation>(
-              title: const Text('Floating - End'),
-              value: FloatingActionButtonLocation.endFloat,
-              groupValue: _fabLocation,
-              onChanged: _onFabLocationChanged,
-            ),
-            RadioListTile<FloatingActionButtonLocation>(
-              title: const Text('Floating - Center'),
-              value: FloatingActionButtonLocation.centerFloat,
-              groupValue: _fabLocation,
-              onChanged: _onFabLocationChanged,
-            ),
-          ],
-        ),
-        floatingActionButton: _showFab
-            ? FloatingActionButton(
-                onPressed: () {},
-                tooltip: 'Create',
-                child: const Icon(Icons.add),
-              )
-            : null,
-        floatingActionButtonLocation: _fabLocation,
-        bottomNavigationBar: _DemoBottomAppBar(
-          fabLocation: _fabLocation,
-          shape: _showNotch ? const CircularNotchedRectangle() : null,
-        ),
+          SwitchListTile(
+            title: const Text('Notch'),
+            value: _showNotch,
+            onChanged: _onShowNotchChanged,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Text('Floating action button position'),
+          ),
+          RadioListTile<FloatingActionButtonLocation>(
+            title: const Text('Docked - End'),
+            value: FloatingActionButtonLocation.endDocked,
+            groupValue: _fabLocation,
+            onChanged: _onFabLocationChanged,
+          ),
+          RadioListTile<FloatingActionButtonLocation>(
+            title: const Text('Docked - Center'),
+            value: FloatingActionButtonLocation.centerDocked,
+            groupValue: _fabLocation,
+            onChanged: _onFabLocationChanged,
+          ),
+          RadioListTile<FloatingActionButtonLocation>(
+            title: const Text('Floating - End'),
+            value: FloatingActionButtonLocation.endFloat,
+            groupValue: _fabLocation,
+            onChanged: _onFabLocationChanged,
+          ),
+          RadioListTile<FloatingActionButtonLocation>(
+            title: const Text('Floating - Center'),
+            value: FloatingActionButtonLocation.centerFloat,
+            groupValue: _fabLocation,
+            onChanged: _onFabLocationChanged,
+          ),
+        ],
+      ),
+      floatingActionButton: _showFab
+          ? FloatingActionButton(
+              onPressed: () {},
+              tooltip: 'Create',
+              child: const Icon(Icons.add),
+            )
+          : null,
+      floatingActionButtonLocation: _fabLocation,
+      bottomNavigationBar: _DemoBottomAppBar(
+        fabLocation: _fabLocation,
+        shape: _showNotch ? const CircularNotchedRectangle() : null,
       ),
     );
   }
