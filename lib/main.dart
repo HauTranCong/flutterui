@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // debugShowCheckedModeBanner: false,
       title: 'Flutter Journey',
       theme: _isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       home: MyHomePage(
@@ -49,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 3;
+  int _selectedPageIndex = 0;
   bool _isDarkTheme = false;
 
   final List<Widget> _pages = [

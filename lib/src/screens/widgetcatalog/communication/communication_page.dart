@@ -60,56 +60,51 @@ class HoverCard extends StatefulWidget {
 }
 
 class _HoverCardState extends State<HoverCard> {
-  bool _isHovered = false;
-
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => widget.page,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Card(
+          clipBehavior: Clip.hardEdge,
+          margin: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => widget.page,
+                ),
+              );
+            },
+            // splashColor: Colors.blue.withAlpha(30),
+            child: Padding(
+            padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8.0),
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: constraints.maxWidth * 0.075,
+                    ),
+                  ),
+                  Text(
+                    widget.subtitle,
+                    style: TextStyle(
+                      // color: Colors.grey,
+                      fontSize: constraints.maxWidth * 0.0325,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
       },
-      child: MouseRegion(
-        onEnter: (_) => setState(() => _isHovered = true),
-        onExit: (_) => setState(() => _isHovered = false),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Card(
-              color: _isHovered ? Colors.blue[70] : Colors.white,
-              margin: const EdgeInsets.all(8.0),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8.0),
-                    Text(
-                      widget.title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: constraints.maxWidth * 0.075,
-                      ),
-                    ),
-                    Text(
-                      widget.subtitle,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: constraints.maxWidth * 0.0325,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ),
     );
   }
 }
