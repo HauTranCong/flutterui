@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListTile(
                   title: Text(subcategory['title']),
                   selected: _selectedPageIndex == subcategory['index'],
-                  selectedTileColor: Colors.grey.withOpacity(0.2),
+                  selectedTileColor: Colors.purple.withOpacity(0.1),
                   onTap: () {
                     _selectPage(subcategory['index']);
                     Navigator.pop(context); // Close the drawer
