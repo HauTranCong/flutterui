@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Widget textBox(String inputText, {double inputFontSize = 18, String? url, double padding = 8}) {
+Widget textBox(String inputText, {double inputFontSize = 18, String? url, double padding = 8, alignment = Alignment.centerLeft}) {
     return Padding(
         padding: EdgeInsets.all(padding),
         child: Align(
-            alignment: Alignment.centerLeft,
+            alignment: alignment,
             child: SelectableText.rich(
                 TextSpan(
                 style: TextStyle(fontSize: inputFontSize, color: Colors.black),
