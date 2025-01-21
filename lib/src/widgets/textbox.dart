@@ -9,7 +9,7 @@ Widget textBox(String inputText, {double inputFontSize = 18, String? url, double
             alignment: alignment,
             child: SelectableText.rich(
                 TextSpan(
-                style: TextStyle(fontSize: inputFontSize, color: Colors.black),
+                style: TextStyle(fontSize: inputFontSize),
                 children: [
                     TextSpan(
                         text: inputText,
@@ -22,7 +22,7 @@ Widget textBox(String inputText, {double inputFontSize = 18, String? url, double
                         ),
                         TextSpan(
                             text: url,
-                            style: TextStyle(fontSize: inputFontSize, color: Colors.blue),
+                            style: TextStyle(fontSize: inputFontSize),
                             recognizer: TapGestureRecognizer()
                             ..onTap = () async {
                                 if (await canLaunch(url)) {
