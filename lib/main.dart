@@ -51,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 3;
+  int _selectedPageIndex = 4;
   final double listTileBorderRadius = 24.0;
 
   final List<Widget> _pages = [

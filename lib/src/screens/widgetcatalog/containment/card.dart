@@ -2,39 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutterui/src/widgets/textbox.dart';
 
 class CardScreen extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                title: Text('Card'),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Card'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          children: [
+            textBox(
+              'Cards display content and actions about a single subject.',
+              inputFontSize: 24,
             ),
-            body: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                    children: [
-                        textBox(
-                            'Cards display content and actions about a single subject.',
-                            inputFontSize: 24,
-                        ),
-                        textBox(
-                            '#',
-                            inputFontSize: 24,
-                            url: 'https://m3.material.io/components/cards/overview',
-                        ),
-                        MusicCard(),
-                        SizedBox(height: 16),   
-                        TapCard(),
-                        SizedBox(height: 16),   
-                        Card(child: SampleCard(cardName: 'Elevated Card')),
-                        SizedBox(height: 16),   
-                        Card.filled(child: SampleCard(cardName: 'Filled Card')),
-                        SizedBox(height: 16),   
-                        Card.outlined(child: SampleCard(cardName: 'Outlined Card')),
-                    ],
-                ),
+            textBox(
+              '#',
+              inputFontSize: 24,
+              url: 'https://m3.material.io/components/cards/overview',
             ),
-        );
-    }
+            MusicCard(),
+            SizedBox(height: 16),
+            TapCard(),
+            SizedBox(height: 16),
+            Card(child: SampleCard(cardName: 'Elevated Card')),
+            SizedBox(height: 16),
+            Card.filled(child: SampleCard(cardName: 'Filled Card')),
+            SizedBox(height: 16),
+            Card.outlined(child: SampleCard(cardName: 'Outlined Card')),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class MusicCard extends StatelessWidget {
