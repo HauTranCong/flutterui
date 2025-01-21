@@ -11,26 +11,46 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkTheme = false;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkTheme = !_isDarkTheme;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Journey',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: _isDarkTheme ? ThemeData.dark() : ThemeData.light(),
+      home: MyHomePage(
+        isDarkTheme: _isDarkTheme,
+        toggleTheme: _toggleTheme,
       ),
-      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  final bool isDarkTheme;
+  final Function toggleTheme;
+
+  MyHomePage({required this.isDarkTheme, required this.toggleTheme});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedPageIndex = 3;
+  bool _isDarkTheme = false;
 
   final List<Widget> _pages = [
     ActionsPage(),
@@ -81,6 +101,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: IndexedStack(
         index: _selectedPageIndex,
         children: _pages,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => widget.toggleTheme(),
+        child: Icon(Icons.brightness_6),
       ),
     );
   }
