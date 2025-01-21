@@ -10,10 +10,191 @@ class TabBarScreen extends StatelessWidget {
             body: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                        // Add your widgets here
+                        Card(
+                            margin: EdgeInsets.all(16.0),
+                            child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.5, // Adjust height dynamically
+                                    child: TabBarExample(),
+                                ),
+                            ),
+                            color: Colors.grey[300],
+                        ),
+                        Card(
+                            margin: EdgeInsets.all(16.0),
+                            child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.5, // Adjust height dynamically
+                                    child: TabBarWithNestedBar(),
+                                ),
+                            ),
+                            color: Colors.grey[300],
+                        ),
                     ],
                 ),
             ),
+        );
+    }
+}
+
+class TabBarExample extends StatefulWidget {
+    const TabBarExample({super.key});
+
+    @override
+    State<TabBarExample> createState() => _TabBarExampleState();
+}
+
+/// [AnimationController]s can be created with `vsync: this` because of
+/// [TickerProviderStateMixin].
+class _TabBarExampleState extends State<TabBarExample> with TickerProviderStateMixin {
+    late final TabController _tabController;
+
+    @override
+    void initState() {
+        super.initState();
+        _tabController = TabController(length: 3, vsync: this);
+    }
+
+    @override
+    void dispose() {
+        _tabController.dispose();
+        super.dispose();
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            appBar: AppBar(
+                title: const Text('TabBar With Basic Sample'),
+                automaticallyImplyLeading: false,
+                bottom: TabBar(
+                    controller: _tabController,
+                    tabs: const <Widget>[
+                        Tab(
+                            icon: Icon(Icons.cloud_outlined),
+                        ),
+                        Tab(
+                            icon: Icon(Icons.beach_access_sharp),
+                        ),
+                        Tab(
+                            icon: Icon(Icons.brightness_5_sharp),
+                        ),
+                    ],
+                ),
+            ),
+            body: TabBarView(
+                controller: _tabController,
+                children: const <Widget>[
+                    Center(
+                        child: Text("It's cloudy here"),
+                    ),
+                    Center(
+                        child: Text("It's rainy here"),
+                    ),
+                    Center(
+                        child: Text("It's sunny here"),
+                    ),
+                ],
+            ),
+        );
+    }
+}
+
+class TabBarWithNestedBar extends StatelessWidget {
+    const TabBarWithNestedBar({super.key});
+
+    @override
+    Widget build(BuildContext context) {
+        return DefaultTabController(
+            initialIndex: 1,
+            length: 3,
+            child: Scaffold(
+                appBar: AppBar(
+                    automaticallyImplyLeading: false,
+                    title: const Text('Primary and secondary TabBar'),
+                    bottom: const TabBar(
+                        dividerColor: Colors.transparent,
+                        tabs: <Widget>[
+                            Tab(
+                                text: 'Flights',
+                                icon: Icon(Icons.flight),
+                            ),
+                            Tab(
+                                text: 'Trips',
+                                icon: Icon(Icons.luggage),
+                            ),
+                            Tab(
+                                text: 'Explore',
+                                icon: Icon(Icons.explore),
+                            ),
+                        ],
+                    ),
+                ),
+                body: const TabBarView(
+                    children: <Widget>[
+                        NestedTabBar('Flights'),
+                        NestedTabBar('Trips'),
+                        NestedTabBar('Explore'),
+                    ],
+                ),
+            ),
+        );
+    }
+}
+
+class NestedTabBar extends StatefulWidget {
+    const NestedTabBar(this.outerTab, {super.key});
+
+    final String outerTab;
+
+    @override
+    State<NestedTabBar> createState() => _NestedTabBarState();
+}
+
+class _NestedTabBarState extends State<NestedTabBar> with TickerProviderStateMixin {
+    late final TabController _tabController;
+
+    @override
+    void initState() {
+        super.initState();
+        _tabController = TabController(length: 2, vsync: this);
+    }
+
+    @override
+    void dispose() {
+        _tabController.dispose();
+        super.dispose();
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return Column(
+            children: <Widget>[
+                TabBar.secondary(
+                    controller: _tabController,
+                    tabs: const <Widget>[
+                        Tab(text: 'Overview'),
+                        Tab(text: 'Specifications'),
+                    ],
+                ),
+                Expanded(
+                    child: TabBarView(
+                        controller: _tabController,
+                        children: <Widget>[
+                            Card(
+                                margin: const EdgeInsets.all(16.0),
+                                child: Center(child: Text('${widget.outerTab}: Overview tab')),
+                            ),
+                            Card(
+                                margin: const EdgeInsets.all(16.0),
+                                child: Center(child: Text('${widget.outerTab}: Specifications tab')),
+                            ),
+                        ],
+                    ),
+                ),
+            ],
         );
     }
 }

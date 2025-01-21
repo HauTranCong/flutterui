@@ -21,7 +21,7 @@ class NavigationDrawerScreen extends StatelessWidget {
                                     child: NavigationDrawerStandard(),
                                 ),
                             ),
-                            color: Colors.grey[200],
+                            color: Colors.grey[300],
                         ),
                         Card(
                             margin: EdgeInsets.all(16.0),
@@ -32,7 +32,7 @@ class NavigationDrawerScreen extends StatelessWidget {
                                     child: NavigationDrawerModal(),
                                 ),
                             ),
-                            color: Colors.grey[200],
+                            color: Colors.grey[300],
                         ),
                     ],
                 ),
