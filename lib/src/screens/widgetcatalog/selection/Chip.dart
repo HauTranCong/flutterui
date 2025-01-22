@@ -121,7 +121,7 @@ class ChipExample extends StatelessWidget {
                     avatar: CircleAvatar(
                         child: Text('W'),
                     ),
-                    label: Text('When are you going?'),
+                    label: Text('Why so serious?'),
                 ),
                 Chip(
                     avatar: CircleAvatar(
