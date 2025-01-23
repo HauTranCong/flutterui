@@ -25,8 +25,16 @@ class CommunicationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double viewWidth = MediaQuery.of(context).size.width;
-    int crossAxisCount = viewWidth > 1200 ? 4 : viewWidth > 800 ? 4 : 2;
-    double childAspectRatio = viewWidth > 1200 ? 2 : viewWidth > 800 ? 1.5 : 1;
+    int crossAxisCount = viewWidth > 1200
+        ? 4
+        : viewWidth > 800
+            ? 4
+            : 2;
+    double childAspectRatio = viewWidth > 1200
+        ? 2
+        : viewWidth > 800
+            ? 1.5
+            : 1;
 
     return Scaffold(
       body: GridView.builder(
@@ -53,7 +61,8 @@ class HoverCard extends StatefulWidget {
   final String subtitle;
   final Widget page;
 
-  const HoverCard({required this.title, required this.subtitle, required this.page});
+  const HoverCard(
+      {required this.title, required this.subtitle, required this.page});
 
   @override
   _HoverCardState createState() => _HoverCardState();
@@ -78,7 +87,7 @@ class _HoverCardState extends State<HoverCard> {
             },
             // splashColor: Colors.blue.withAlpha(30),
             child: Padding(
-            padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,

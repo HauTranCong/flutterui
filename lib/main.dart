@@ -45,14 +45,16 @@ class MyHomePage extends StatefulWidget {
   final bool isDarkTheme;
   final Function toggleTheme;
 
-  const MyHomePage({required this.isDarkTheme, required this.toggleTheme, Key? key}) : super(key: key);
+  const MyHomePage(
+      {required this.isDarkTheme, required this.toggleTheme, Key? key})
+      : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 4;
+  int _selectedPageIndex = 5;
   final double listTileBorderRadius = 24.0;
 
   final List<Widget> _pages = [
@@ -88,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
             final category = widgetCatalog[index];
             return ExpansionTile(
               title: Text(category['title']),
-              initiallyExpanded: category['children'].any((subcategory) => subcategory['index'] == _selectedPageIndex),
+              initiallyExpanded: category['children'].any(
+                  (subcategory) => subcategory['index'] == _selectedPageIndex),
               children: category['children'].map<Widget>((subcategory) {
                 return ListTile(
                   title: Text(subcategory['title']),
