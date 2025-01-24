@@ -5,7 +5,8 @@ import 'src/screens/widgetcatalog/containment/containment_page.dart';
 import 'src/screens/widgetcatalog/navigation/navigation_page.dart';
 import 'src/screens/widgetcatalog/selection/selection_page.dart';
 import 'src/screens/widgetcatalog/text_inputs/text_inputs_page.dart';
-import 'src/screens/layout/introduction_page.dart';
+import 'src/screens/introduction/introduction_page.dart';
+import 'src/screens/assetsmedia/assets_media_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,17 +55,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 5;
+  int _selectedPageIndex = 7;
   final double listTileBorderRadius = 24.0;
 
   final List<Widget> _pages = [
+    IntroductionPage(),
     ActionsPage(),
     CommunicationPage(),
     ContainmentPage(),
     NavigationPage(),
     SelectionPage(),
     TextInputsPage(),
-    IntroductionPage(),
+    AssetsMediaPage(),
   ];
 
   void _selectPage(int index) {
@@ -123,20 +125,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Map<String, dynamic>> widgetCatalog = const [
     {
-      'title': 'Widgets',
+      'title': 'Flutter Journey',
       'children': [
-        {'title': 'Actions', 'index': 0},
-        {'title': 'Communication', 'index': 1},
-        {'title': 'Containment', 'index': 2},
-        {'title': 'Navigation', 'index': 3},
-        {'title': 'Selection', 'index': 4},
-        {'title': 'Text Inputs', 'index': 5},
+        {'title': 'Introduction', 'index': 0},
       ],
     },
     {
-      'title': 'Layout',
+      'title': 'Widgets',
       'children': [
-        {'title': 'Introduction', 'index': 6},
+        {'title': 'Actions', 'index': 1},
+        {'title': 'Communication', 'index': 2},
+        {'title': 'Containment', 'index': 3},
+        {'title': 'Navigation', 'index': 4},
+        {'title': 'Selection', 'index': 5},
+        {'title': 'Text Inputs', 'index': 6},
+      ],
+    },
+    {
+      'title': 'Assets & Media',
+      'children': [
+        {'title': 'Images', 'index': 7},
+        {'title': 'Videos', 'index': 8},
       ],
     },
   ];
