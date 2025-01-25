@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'Images.dart';
+import 'Fonts.dart';
 
 class AssetsMediaPage extends StatelessWidget {
   final List<String> pages = const [
     'Images',
+    'Fronts',
   ];
 
   final List<String> subtitles = const [
     'Badges show notifications, counts, or status information on navigation items and icons',
+    'Text fonts',
   ];
 
   final List<Widget> pageWidgets = [
     ImagesPage(),
+    FontsPage(),
   ];
 
   @override
