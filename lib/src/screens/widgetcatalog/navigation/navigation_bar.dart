@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'NavigationBarWithDestinationPages.dart';
+import 'navigation_bar_with_destination_pages.dart';
 
 class NavigationBarScreen extends StatelessWidget {
     @override

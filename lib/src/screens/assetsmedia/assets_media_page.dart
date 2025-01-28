@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Images.dart';
-import 'Fonts.dart';
-import 'OtherFilesType.dart';
+import 'images.dart';
+import 'fonts.dart';
+import 'other_files_type.dart';
 
 class AssetsMediaPage extends StatelessWidget {
   final List<String> pages = const [

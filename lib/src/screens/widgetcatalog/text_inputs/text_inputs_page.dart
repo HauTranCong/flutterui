@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'TextInput.dart';
+import 'textinput.dart';
 
 class TextInputsPage extends StatelessWidget {
   final List<String> pages = const [

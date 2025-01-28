@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DependencyInjection.dart';
+import 'dependency_injection.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [

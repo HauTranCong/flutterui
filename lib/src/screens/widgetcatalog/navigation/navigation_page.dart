@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'AppBar.dart';
-import 'BottomAppBar.dart';
-import 'NavigationBar.dart';
-import 'NavigationDrawer.dart';
-import 'NavigationRail.dart';
-import 'TabBar.dart';
+import 'appbar.dart';
+import 'bottom_app_bar.dart';
+import 'navigation_bar.dart';
+import 'navigation_drawer.dart';
+import 'navigation_rail.dart';
+import 'tab_bar.dart';
 
 class NavigationPage extends StatelessWidget {
   final List<String> pages = const [

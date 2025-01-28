@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'NavigationDrawerStandard.dart';
-import 'NavigationDrawerModal.dart';
+import 'navigation_drawer_standard.dart';
+import 'navigation_drawer_modal.dart';
 
 class NavigationDrawerScreen extends StatelessWidget {
     @override

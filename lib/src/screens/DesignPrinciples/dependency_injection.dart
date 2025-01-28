@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutterui/src/core/dependency_injection/PriceGetter.dart';
+import 'package:flutterui/src/core/dependency_injection/price_getter.dart';
 
 class DependencyInjection extends StatelessWidget {
   const DependencyInjection({super.key});
