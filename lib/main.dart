@@ -7,7 +7,7 @@ import 'src/screens/widgetcatalog/selection/selection_page.dart';
 import 'src/screens/widgetcatalog/text_inputs/text_inputs_page.dart';
 import 'src/screens/introduction/introduction_page.dart';
 import 'src/screens/assetsmedia/assets_media_page.dart';
-import 'src/screens/designprinciples/design_principles_page.dart';
+import 'src/screens/designprinciples/designprinciples_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,7 +56,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 8;
+  int _selectedPageIndex = 0;
   final double listTileBorderRadius = 24.0;
 
   final List<Widget> _pages = [
