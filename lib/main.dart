@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'src/screens/widgetcatalog/actions/actions_page.dart';
-import 'src/screens/widgetcatalog/communication/communication_page.dart';
-import 'src/screens/widgetcatalog/containment/containment_page.dart';
-import 'src/screens/widgetcatalog/navigation/navigation_page.dart';
-import 'src/screens/widgetcatalog/selection/selection_page.dart';
-import 'src/screens/widgetcatalog/text_inputs/text_inputs_page.dart';
-import 'src/screens/introduction/introduction_page.dart';
-import 'src/screens/assetsmedia/assets_media_page.dart';
+import 'src/screens/WidgetCatalog/actions/actions_page.dart';
+import 'src/screens/WidgetCatalog/communication/communication_page.dart';
+import 'src/screens/WidgetCatalog/containment/containment_page.dart';
+import 'src/screens/WidgetCatalog/navigation/navigation_page.dart';
+import 'src/screens/WidgetCatalog/selection/selection_page.dart';
+import 'src/screens/WidgetCatalog/text_inputs/text_inputs_page.dart';
+import 'src/screens/Introduction/introduction_page.dart';
+import 'src/screens/AssetsMedia/assets_media_page.dart';
+import 'src/screens/DesignPrinciples/design_principles_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +56,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedPageIndex = 7;
+  int _selectedPageIndex = 8;
   final double listTileBorderRadius = 24.0;
 
   final List<Widget> _pages = [
@@ -67,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     SelectionPage(),
     TextInputsPage(),
     AssetsMediaPage(),
+    DesignPrinciplesPage(),
   ];
 
   void _selectPage(int index) {
@@ -145,7 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
       'title': 'Assets & Media',
       'children': [
         {'title': 'Images', 'index': 7},
-        {'title': 'Videos', 'index': 8},
+        // {'title': 'Videos', 'index': 8},
+      ],
+    },
+    {
+      'title': 'Design Principles',
+      'children': [
+        {'title': 'Dependency Injection', 'index': 8},
       ],
     },
   ];
