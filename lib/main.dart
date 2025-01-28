@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'src/screens/WidgetCatalog/actions/actions_page.dart';
-import 'src/screens/WidgetCatalog/communication/communication_page.dart';
-import 'src/screens/WidgetCatalog/containment/containment_page.dart';
-import 'src/screens/WidgetCatalog/navigation/navigation_page.dart';
-import 'src/screens/WidgetCatalog/selection/selection_page.dart';
-import 'src/screens/WidgetCatalog/text_inputs/text_inputs_page.dart';
-import 'src/screens/Introduction/introduction_page.dart';
-import 'src/screens/AssetsMedia/assets_media_page.dart';
-import 'src/screens/DesignPrinciples/design_principles_page.dart';
+import 'src/screens/widgetCatalog/actions/actions_page.dart';
+import 'src/screens/widgetCatalog/communication/communication_page.dart';
+import 'src/screens/widgetCatalog/containment/containment_page.dart';
+import 'src/screens/widgetCatalog/navigation/navigation_page.dart';
+import 'src/screens/widgetCatalog/selection/selection_page.dart';
+import 'src/screens/widgetCatalog/text_inputs/text_inputs_page.dart';
+import 'src/screens/introduction/introduction_page.dart';
+import 'src/screens/assetsmedia/assets_media_page.dart';
+import 'src/screens/designprinciples/design_principles_page.dart';
 
 void main() {
   runApp(const MyApp());
