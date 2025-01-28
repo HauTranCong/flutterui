@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'images.dart';
-import 'fonts.dart';
+import 'image_files.dart';
+import 'font_files.dart';
 import 'other_files_type.dart';
 
 class AssetsMediaPage extends StatelessWidget {
