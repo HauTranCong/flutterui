@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'dependency_injection.dart';
+import 'mvc/mvc_views.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
     'Dependency Injection',
+    'Models-Views-Controllers',
   ];
 
   final List<String> subtitles = const [
     'Dependency Injection is a design pattern that allows objects to receive their dependencies from external sources instead of creating them internally',
+    'MVC is a software architectural pattern that separates an application into three main logical components: Model, View, and Controller',
   ];
 
   final List<Widget> pageWidgets = [
     DependencyInjection(),
+    MVC()
   ];
 
   @override
