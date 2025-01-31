@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutterui/src/core/dependency_injection/price_getter.dart';
+import 'package:flutterui/src/widgets/textbox.dart';
 
 class DependencyInjection extends StatelessWidget {
   const DependencyInjection({super.key});
@@ -14,16 +15,16 @@ class DependencyInjection extends StatelessWidget {
         title: Text('Dependency Injection'),
       ),
       body: Center(
-        child: DisplayBtcPrice(priceGetter: priceGetter), // Inject the dependency
+        child: Column(
+          children: [
+            SizedBox(child: Image.network('https://cdn-media-1.freecodecamp.org/images/1*0P-1JhnUaZeobDUAajIbhA.jpeg')),
+            textBox('In software engineering, dependency injection is a programming technique in which an object or function receives other objects or functions that it requires, as opposed to creating them internally.'),
+            textBox('This example demonstrates dependency injection in Flutter. The DisplayBtcPrice widget receives a PriceGetter object that fetches the current Bitcoin price from an API.'),
+            Divider(),
+            DisplayBtcPrice(priceGetter: priceGetter),
+          ],
+        ),// Inject the dependency
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     // Access the state of DisplayBtcPrice and call _fetchBtcPrice
-      //     final state = context.findAncestorStateOfType<_DisplayBtcPriceState>();
-      //     state?._fetchBtcPrice();
-      //   },
-      //   child: Icon(Icons.refresh),
-      // ),
     );
   }
 }
