@@ -1,5 +1,7 @@
 // lib/views/user_view.dart
 import 'package:flutter/material.dart';
+import 'package:flutterui/src/widgets/textbox.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'mvc_controller.dart';
 
 class MVC extends StatefulWidget {
@@ -45,22 +47,29 @@ class _MVCState extends State<MVC> {
       appBar: AppBar(
         title: Text('MVC in Flutter'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('Name: ${_userController.user.name}', style: TextStyle(fontSize: 24),),
-            Text('Age: ${_userController.user.age}', style: TextStyle(fontSize: 24)),
-            SizedBox(height: 20),
+            SizedBox(
+              child: SvgPicture.network('https://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg'),
+            ),
+            textBox('Model–view–controller (MVC) is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. These elements are:'),
+            textBox('Model: Represents the data and business logic'),
+            textBox('View: Represents the UI components'),
+            textBox('Controller: Acts as an intermediary between the Model and the View, handling user input and updating the Model and View accordingly'),
+            Divider(),
+            Text('User Name: ${_userController.user.name}', style: TextStyle(fontSize: 24)),
+            Text('User Age: ${_userController.user.age}', style: TextStyle(fontSize: 24)),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: TextField(
                 controller: _nameController,
                 decoration: InputDecoration(labelText: 'Name'),
               ),
             ),
             Padding (
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: TextField(
                 controller: _ageController,
                 decoration: InputDecoration(labelText: 'Age'),
@@ -71,7 +80,9 @@ class _MVCState extends State<MVC> {
               onPressed: () {
                 _updateUser();
                 }, 
-              child: Text('User input'),)
+              child: Text('Example: Enter user inputs to update'),
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
