@@ -45,7 +45,7 @@ class _MVCState extends State<MVC> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MVC in Flutter'),
+        title: Text('Model–view–controller (MVC)'),
       ),
       body: SingleChildScrollView(
         child: Column(
