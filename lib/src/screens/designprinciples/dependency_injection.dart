@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterui/src/core/dependency_injection/price_getter.dart';
 import 'package:flutterui/src/widgets/textbox.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DependencyInjection extends StatelessWidget {
   const DependencyInjection({super.key});
@@ -17,10 +19,29 @@ class DependencyInjection extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(child: Image.network('https://cdn-media-1.freecodecamp.org/images/1*0P-1JhnUaZeobDUAajIbhA.jpeg')),
             textBox('In software engineering, dependency injection is a programming technique in which an object or function receives other objects or functions that it requires, as opposed to creating them internally.'),
-            textBox('This example demonstrates dependency injection in Flutter. The DisplayBtcPrice widget receives a PriceGetter object that fetches the current Bitcoin price from an API.'),
+            Image.asset(
+              'assets/images/dependency_injection.jpeg',
+              height: MediaQuery.of(context).size.height * 0.5,
+            ),
+            RichText(
+              text: TextSpan(
+                text: 'Dependency Injection',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    launchUrl(Uri.parse('https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/'));
+                  },
+              ),
+            ),
+            textBox("Dependency injection is often used alongside specialized frameworks, known as 'containers', to facilitate program composition"),
             Divider(),
+            textBox('This example demonstrates dependency injection in Flutter. The DisplayBtcPrice widget receives a PriceGetter object that fetches the current Bitcoin price from an API.'),
             DisplayBtcPrice(priceGetter: priceGetter),
           ],
         ),// Inject the dependency
