@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'provider_class.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutterui/src/widgets/textbox.dart';
+import 'provider_class.dart';
 
 class ProviderPattern extends StatelessWidget {
   @override
@@ -18,6 +20,21 @@ class ProviderPattern extends StatelessWidget {
             children: [
               SizedBox(
                 child: Image.network('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Dp6C1QBGPLnFctORNHc_1A.png'),
+              ),
+              RichText(
+                text: TextSpan(
+                  text: 'Using Provider Pattern',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      launchUrl(Uri.parse('https://medium.com/@blup-tool/using-provider-pattern-with-a-database-in-flutter-a-complete-guide-for-beginners-562a41cf035f'));
+                    },
+                ),
               ),
               textBox('The Provider Pattern is a design pattern commonly used in Flutter applications for state management.'),
               textBox('Providers: Objects that hold and expose state or services'),
