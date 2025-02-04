@@ -2,24 +2,28 @@ import 'package:flutter/material.dart';
 import 'dependency_injection.dart';
 import 'mvc/mvc_views.dart';
 import 'mvvm/mvvm_viewmodel.dart';
+import 'provider/provider_pattern.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
     'Dependency Injection',
     'Models-Views-Controllers',
     'Model-View-ViewModel',
+    'Provider Pattern',
   ];
 
   final List<String> subtitles = const [
     'Dependency Injection is a design pattern that allows objects to receive their dependencies from external sources instead of creating them internally',
     'MVC is a software architectural pattern that separates an application into three main logical components: Model, View, and Controller',
     'MVVM (Model-View-ViewModel) is a software architecture pattern that helps separate UI (View) from business logic (Model) using an intermediary called ViewModel',
+    'Provider Pattern is a state management pattern that allows sharing data between widgets without passing it explicitly',
   ];
 
   final List<Widget> pageWidgets = [
     DependencyInjection(),
     MVC(),
     MVVM(),
+    ProviderPattern(),
   ];
 
   @override
