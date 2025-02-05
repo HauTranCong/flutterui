@@ -4,6 +4,7 @@ import 'mvc/mvc_views.dart';
 import 'mvvm/mvvm_viewmodel.dart';
 import 'bloc/bloc_view.dart';
 import 'provider/provider_pattern.dart';
+import 'singleton/singleton_view.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
@@ -12,6 +13,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Model-View-ViewModel',
     'Provider Pattern',
     'Bloc Pattern',
+    'Singleton Pattern',
   ];
 
   final List<String> subtitles = const [
@@ -20,6 +22,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'MVVM (Model-View-ViewModel) is a software architecture pattern that helps separate UI (View) from business logic (Model) using an intermediary called ViewModel',
     'Provider Pattern is a state management pattern that allows sharing data between widgets without passing it explicitly',
     'The BLoC (Business Logic Component) Pattern in Flutter is a state management approach that separates UI and business logic using streams and the bloc package',
+    'Singleton Pattern is a design pattern that restricts the instantiation of a class to one object, providing a global point of access to the object',
   ];
 
   final List<Widget> pageWidgets = [
@@ -28,6 +31,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     MVVM(),
     ProviderPattern(),
     BlocPattern(),
+    SingletonPattern(),
   ];
 
   @override
