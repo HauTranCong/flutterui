@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/darcula.dart';
 import 'package:flutter_highlight/themes/github.dart';
 
 class CodeCardFromAsset extends StatefulWidget {
@@ -45,12 +46,16 @@ class _CodeCardFromAssetState extends State<CodeCardFromAsset> {
         padding: const EdgeInsets.all(12),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: HighlightView(
-            _code,
-            language: widget.language,
-            theme: githubTheme,
-            padding: const EdgeInsets.all(8),
-            textStyle: const TextStyle(fontSize: 20),
+          child: Container(
+            width:
+                MediaQuery.of(context).size.width * 0.9, // 90% of screen width
+            child: HighlightView(
+              _code,
+              language: widget.language,
+              theme: darculaTheme,
+              padding: const EdgeInsets.all(8),
+              textStyle: const TextStyle(fontSize: 20),
+            ),
           ),
         ),
       ),
