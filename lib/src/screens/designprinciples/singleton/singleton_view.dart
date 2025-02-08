@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterui/src/widgets/textbox.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutterui/src/widgets/codecard.dart';
 
 class SingletonPattern extends StatelessWidget {

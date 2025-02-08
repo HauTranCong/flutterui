@@ -7,6 +7,9 @@ Widget textBox(String inputText,
     String? url,
     double padding = 8,
     alignment = Alignment.centerLeft}) {
+  // Remove surrounding single quotes or triple single quotes
+  inputText = inputText.replaceAll(RegExp(r'\s+'), ' ').trim();
+
   return Padding(
     padding: EdgeInsets.all(padding),
     child: Align(

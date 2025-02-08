@@ -5,6 +5,7 @@ import 'mvvm/mvvm_viewmodel.dart';
 import 'bloc/bloc_view.dart';
 import 'provider/provider_pattern.dart';
 import 'singleton/singleton_view.dart';
+import 'factory/factory_page.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
@@ -14,6 +15,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Provider Pattern',
     'Bloc Pattern',
     'Singleton Pattern',
+    'Factory Pattern',
   ];
 
   final List<String> subtitles = const [
@@ -23,6 +25,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Provider Pattern is a state management pattern that allows sharing data between widgets without passing it explicitly',
     'The BLoC (Business Logic Component) Pattern in Flutter is a state management approach that separates UI and business logic using streams and the bloc package',
     'Singleton Pattern is a design pattern that restricts the instantiation of a class to one object, providing a global point of access to the object',
+    'The Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created'
   ];
 
   final List<Widget> pageWidgets = [
@@ -32,13 +35,22 @@ class DesignPrinciplesPage extends StatelessWidget {
     ProviderPattern(),
     BlocPattern(),
     SingletonPattern(),
+    FactoryPattern(),
   ];
 
   @override
   Widget build(BuildContext context) {
     double viewWidth = MediaQuery.of(context).size.width;
-    int crossAxisCount = viewWidth > 1200 ? 4 : viewWidth > 800 ? 4 : 2;
-    double childAspectRatio = viewWidth > 1200 ? 2 : viewWidth > 800 ? 1.5 : 1;
+    int crossAxisCount = viewWidth > 1200
+        ? 4
+        : viewWidth > 800
+            ? 4
+            : 2;
+    double childAspectRatio = viewWidth > 1200
+        ? 2
+        : viewWidth > 800
+            ? 1.5
+            : 1;
 
     return Scaffold(
       body: GridView.builder(
@@ -65,7 +77,8 @@ class HoverCard extends StatefulWidget {
   final String subtitle;
   final Widget page;
 
-  const HoverCard({required this.title, required this.subtitle, required this.page});
+  const HoverCard(
+      {required this.title, required this.subtitle, required this.page});
 
   @override
   _HoverCardState createState() => _HoverCardState();
@@ -90,7 +103,7 @@ class _HoverCardState extends State<HoverCard> {
             },
             // splashColor: Colors.blue.withAlpha(30),
             child: Padding(
-            padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
