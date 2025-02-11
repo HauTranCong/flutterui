@@ -6,6 +6,7 @@ import 'bloc/bloc_view.dart';
 import 'provider/provider_pattern.dart';
 import 'singleton/singleton_view.dart';
 import 'factory/factory_page.dart';
+import 'builder/builder_pattern.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
@@ -16,6 +17,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Bloc Pattern',
     'Singleton Pattern',
     'Factory Pattern',
+    'Builder Pattern',
   ];
 
   final List<String> subtitles = const [
@@ -25,7 +27,8 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Provider Pattern is a state management pattern that allows sharing data between widgets without passing it explicitly',
     'The BLoC (Business Logic Component) Pattern in Flutter is a state management approach that separates UI and business logic using streams and the bloc package',
     'Singleton Pattern is a design pattern that restricts the instantiation of a class to one object, providing a global point of access to the object',
-    'The Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created'
+    'The Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created',
+    'The Builder Pattern is a creational design pattern used to construct complex objects step by step. It allows creating different representations of an object using the same construction process.',
   ];
 
   final List<Widget> pageWidgets = [
@@ -36,6 +39,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     BlocPattern(),
     SingletonPattern(),
     FactoryPattern(),
+    BuilderPattern(),
   ];
 
   @override
