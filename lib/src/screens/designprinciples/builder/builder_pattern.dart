@@ -7,7 +7,7 @@ class BuilderPattern extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Factory Pattern'),
+        title: Text('Builder Pattern'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -34,7 +34,8 @@ class BuilderPattern extends StatelessWidget {
                 maintains the product’s state.'''),
             textBox('''4. Director (Optional) – Controls the construction 
                 sequence.'''),
-            textBox('''5. Client – Uses the builder to construct the object.'''),
+            textBox(
+                '''5. Client – Uses the builder to construct the object.'''),
             Divider(),
             textBox('Example in Dart'),
             CodeCardFromAsset(
