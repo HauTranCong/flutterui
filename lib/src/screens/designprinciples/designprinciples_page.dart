@@ -7,6 +7,7 @@ import 'provider/provider_pattern.dart';
 import 'singleton/singleton_view.dart';
 import 'factory/factory_page.dart';
 import 'builder/builder_pattern.dart';
+import 'composite/composite_pattern.dart';
 
 class DesignPrinciplesPage extends StatelessWidget {
   final List<String> pages = const [
@@ -18,6 +19,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Singleton Pattern',
     'Factory Pattern',
     'Builder Pattern',
+    'Composite Pattern',
   ];
 
   final List<String> subtitles = const [
@@ -29,6 +31,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     'Singleton Pattern is a design pattern that restricts the instantiation of a class to one object, providing a global point of access to the object',
     'The Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created',
     'The Builder Pattern is a creational design pattern used to construct complex objects step by step. It allows creating different representations of an object using the same construction process.',
+    'The Composite Pattern is a structural design pattern used to treat individual objects and compositions of objects uniformly.'
   ];
 
   final List<Widget> pageWidgets = [
@@ -40,6 +43,7 @@ class DesignPrinciplesPage extends StatelessWidget {
     SingletonPattern(),
     FactoryPattern(),
     BuilderPattern(),
+    CompositePattern(),
   ];
 
   @override

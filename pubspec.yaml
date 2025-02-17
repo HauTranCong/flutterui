@@ -69,6 +69,7 @@ flutter:
     - lib/src/screens/designprinciples/singleton/
     - lib/src/screens/designprinciples/factory/
     - lib/src/screens/designprinciples/builder/
+    - lib/src/screens/designprinciples/composite/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
